@@ -3,3 +3,4 @@ numpy
 joblib
 pillow
 sklearn
+tensorflow
