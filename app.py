@@ -2,7 +2,6 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 from joblib import load 
-import pickle
 
 st.set_page_config(page_title="Pneumonia Prediction",layout='wide')
 
@@ -17,7 +16,7 @@ if data is not None:
     img_array = np.array(image)
     img_array = np.resize(img_array,(256,256,3))
     img_array = np.array([img_array])
-    model = pickle.load('pneumonia_model.pkl')
+    model = load('pneumonia_model.pkl')
     result = model.predict(img_array)
     if result[0][0] == 1:
         st.error('The patient has Pneumonia')
